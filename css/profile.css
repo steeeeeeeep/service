@@ -1,0 +1,278 @@
+.center{
+  display: grid;
+  height: 100vh;
+  place-items: center;
+  margin-top: 50px;
+  margin-left: 240px;
+}
+/* 
+.center::before{
+  content:"" ;
+  background-image: conic-gradient(
+    #088F8F 20 deg,
+    transparent 120deg
+  );
+  position: absolute;
+  animation: rotate 2s linear infinite;
+}
+
+.center::after{
+  content: "Animation";
+  width: 190px;
+  height: 190px; */
+  /* background: #282828;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:aliceblue;
+} */  
+
+.card{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+  arial;
+  padding: 30px;
+  border-radius: 4px;
+}
+
+#fb2.card {
+  display: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+  arial;
+  padding: 30px;
+  border-radius: 4px;
+}
+
+#fb2.card  button{
+  margin-top: 20px;
+  width: 40%;
+  columns: 2;
+}
+
+.title {
+  color: gray;
+  font-size: 18px;
+}
+
+.profile-avatar{
+  padding: 10px;
+  background: linear-gradient(360deg, #28282857, rgba(205, 205, 205, 0.045));
+}
+
+.card button {
+  border: none;
+  border-radius: 4px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color:  #088F8F;
+  text-align: center;
+  cursor: pointer;
+  width: 70%;
+  font-size: 18px;
+}
+
+.card button:hover .card2{
+  display: block;
+}
+
+.card button:hover{
+  background: #064e40;
+}
+
+.card button:hover, a:hover {
+  opacity: 0.7;
+}
+.btn {
+  display: flex;
+  margin-bottom: 10px;
+}
+.btn a{
+  font-size: 30pt;
+}
+.btn a:hover{
+  color: #088F8F;;
+}
+
+.address{
+  width: 70%;
+  margin: auto;
+}
+
+.rating-star{
+  margin-top: 20px;
+  display: grid;
+  justify-content: center;
+}
+
+.rate {
+  float: none;
+  height: 46px;
+  padding: 0 10px;
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  flex-direction: row-reverse;
+}
+.rate:not(:checked) > input {
+  position:absolute;
+  top:-9999px;
+}
+.rate:not(:checked) > label {
+  float:none;
+  width:1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:30px;
+  color:#ccc;
+}
+.rate:not(:checked) > label:before {
+  content: '★ ';
+}
+.rate > input:checked ~ label {
+  color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #c59b08;
+}
+
+/* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
+
+@keyframes rotate{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(- 360deg);
+  }
+}
+/* .emp-profile{
+	columns: 100px 3;
+  padding: 3%;
+  margin: 1% 1% 3% 1%;
+  border-radius: 0.5rem;
+  background: #1d1d1d;
+}
+.profile-img{
+  overflow-y: hidden;
+  text-align: center;
+  background: #E3F0F7;
+  border-radius: .3rem;
+}
+.profile-img img{
+  width: 70%;
+  height: 100%;
+  border: none;
+  border-radius: 50%;
+}
+.profile-img .file {
+  position: relative;
+  overflow: hidden;
+  'Times New Roman', Times, serif;
+  font-size: 10px;
+  color: #000;
+  margin-top: -10%;
+  justify-content: center;
+  padding: 0;
+  border: none; 
+  background: #E3F0F7b6;
+}
+.profile-img .file span{
+  font-size:10pt;
+}
+.profile-img .file:hover{
+  border: none;
+  color: #fff;
+  background: #030303b1;
+}
+.profile-img .file:active{
+  background: #000;
+}
+.profile-img .file input {
+  position: absolute;
+  opacity: 0;
+  right: 0;
+  top: 0;
+}
+.profile-head h5{
+  color: rgb(255, 255, 255);
+}
+.profile-head h6{
+  color: #007bff;
+}
+.profile-edit-btn{
+  color: rgb(161, 161, 161);
+  border: none;
+  border-radius: 1.5rem;
+  width: 70%;
+  padding: 2%;
+  font-weight: 60pt;
+  cursor: pointer;
+
+}
+.profile-edit-btn:hover {
+  border: 2px solid #000
+}
+.profile-rating{
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  margin-top: 5%;
+}
+.proile-rating span{
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  font-weight: 600;
+}
+.profile-head .nav-tabs{
+  margin-bottom:5%;
+}
+.profile-head .nav-tabs .nav-link{
+  font-weight:600;
+  border: none;
+}
+.profile-head .nav-tabs .nav-link.active{
+  border: none;
+  border-bottom:2px solid #0062cc;
+}
+.profile-work{
+  padding: 14%;
+  margin-top: -15%;
+}
+.profile-work p{
+  font-size: 12px;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  margin-top: 10%;
+}
+.profile-work a{
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  font-size: 14px;
+}
+.profile-work ul{
+  list-style: none;
+}
+.profile-tab label{
+  font-weight: 600;
+}
+.profile-tab p{
+  font-weight: 600;
+  color: #0062cc;
+} */

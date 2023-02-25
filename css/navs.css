@@ -1,0 +1,230 @@
+hr{
+  border: 0;
+  border-top: 1px solid rgb(89 89 89 / 68%);
+  margin: 0;
+}
+
+.topnav {
+  z-index: 3;
+  overflow: hidden;
+  background-color: #088F8F;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  box-shadow: 0 4px 16px 4px #00000047;
+}
+
+.menu{
+  display: flex;
+  margin: 0px 20px;
+  font-size: 20pt;
+  height: 50px;
+  align-items: center;
+}
+
+.menu button:hover, 
+.menu button:focus{
+  color: #4b4b4b;
+  text-decoration: none;
+}
+
+#side-bar{
+  animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {transform: translateX(-100%);}
+  to {transform: translateX(0);}
+}
+
+@keyframes slideOut {
+  from {transform: translateX(0);}
+  to {transform: translateX(-100%);}
+}
+
+
+@media screen and (min-width: 800px) {
+  
+.menu button{
+  display: none;
+}
+}
+
+.topnav .search-container {
+  opacity: 50%;
+  color: black;
+}
+
+#logo{
+	float: left;
+}
+
+#logo img{
+	width: 200px;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .topnav {
+  padding-top: 60px;
+}
+
+.notif{
+  display: flex;
+  font-size: 12pt;
+  position: absolute;
+  font-weight: bold;
+  color: #ff0000;
+  width: 80%;
+  border-radius: 100%;
+  margin: 0 10px;
+  justify-content: flex-end;
+}
+
+.side-bar{
+  z-index: 3;
+  position: fixed;
+  overflow: auto;
+  margin-top: 52px;
+  width: 240px;
+  height: 93%;
+  background: #282828;
+  color: #f2f2f2;
+  font-family: "Raleway", sans-serif;
+  font-size: 20pt;
+  box-shadow: 4px 12px 16px 4px rgb(0,0,0,15%);
+  display: grid;
+  grid-template-rows: 0fr 0fr 1fr 0fr 1fr;
+}
+
+.info{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  margin: 30px 10px;
+}
+
+.navigation{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
+
+.navigation a{
+  display: flex;
+  margin: 10px 0;
+  cursor: pointer;
+  height: fit-content;
+  width: inherit;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+
+.navigation a:hover{
+  color: #088F8F;
+}
+
+.navigation.notif{
+  color: #088F8F;
+}
+
+#link{
+  display: flex;
+  width: 100%;
+  padding: 0 20px;
+} 
+
+#link span{
+  float: right;
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  flex-wrap: nowrap;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 10px;
+}
+
+.logout{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: end;
+  padding-bottom: 20px;
+}
+
+.logout a{
+  display: inline;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.logout a:hover{
+  color:#088F8F;
+}
+
+.service{
+  position: relative;;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: end;
+}
+
+
+.service1{ 
+  z-index: 4;
+  position: absolute;
+  width: 200px;
+  box-shadow:1px 20px 16px 11px rgb(0 0 0 / 40%);
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 12pt;
+  background: #282828;
+  padding: 10px;
+  top: 40px;
+}
+
+
+
+/* ===[===========================mobile interface================================================= */
+
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 12px}
+  .overlay .closebtn {font-size: 12px;}
+}
+
+
+@media screen and (max-width: 800px) {
+  .topnav a{display: none;}
+  .topnav a.icon {
+    float: left;
+    display: block;
+  }
+
+  .navtexts a.icons {display: block;}
+  #logo{
+    float: right;
+  }
+  .dropdown{display: none;}
+  }
+
+@media screen and (max-width: 800px) {
+  .topnav.responsive {position: relative;}
+
+
+  .topnav.response #logo {
+    display: block;
+    position: relative;
+    margin: -3px 3px;
+  }
+}

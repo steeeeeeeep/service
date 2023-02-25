@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Home Service Web Application Landing Page</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<style>
+  /* Add some basic styling to the page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Add a background color */
+.container {
+    background-color: #f2f2f2;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+/* Style the header */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+}
+
+/* Style the navigation menu */
+nav {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+}
+
+/* Add some basic styling to the main section */
+main {
+    padding: 2rem;
+    width: 100%;
+}
+
+/* Add some basic styling to the footer */
+footer {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+/* Add some basic styling to the form */
+form {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Add some basic styling to the form inputs */
+input[type="text"], input[type="email"], textarea {
+    padding: 0.5rem;
+    margin: 1rem 0;
+    width: 100%;
+}
+
+/* Add some basic styling to the submit button */
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    margin: 1rem 0;
+    cursor: pointer;
+}
+
+/* Add some basic styling to the pricing table */
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 0 auto;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#pricing {
+    text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    /* Make the table responsive */
+    table {
+        width: 100%;
+    }
+    
+    /* Hide the header cells on small screens */
+    th {
+        display: none;
+    }
+    
+    /* Show the header cells as the first cell in each row */
+    td:before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+    }
+}
+
+</style>
+
+<body>
+  <header>
+    <h1>Welcome to Our Home Service Web Application</h1>
+    <nav>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section id="services">
+    <h2>Our Services</h2>
+    <ul>
+      <li>Home Service</li>
+      <li>Office Service</li>
+      <li>Automotive Service</li>
+      <li>Event Service</li>
+      <li>Repair Service</li>
+      <li>Personal Grooming</li>
+    </ul>
+  </section>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Our company has been providing top-notch home, office, automotive, event, repair, and personal grooming services for many years. Our team of experts is dedicated to providing high-quality service and customer satisfaction. We strive to make your experience with us as convenient and stress-free as possible.</p>
+  </section>
+  <section id="testimonials">
+    <h2>What Our Customers Say</h2>
+    <?php 
+    $testimonials = array(
+      array(
+        'name' => 'John Doe',
+        'testimonial' => 'I was extremely impressed with the quality of service I received from this company. They were professional, efficient, and friendly. I would highly recommend them to anyone.'
+      ),
+      array(
+        'name' => 'Jane Smith',
+        'testimonial' => 'I was really pleased with the service I received. The team was very friendly and helpful, and they did a great job. I would definitely use them again.'
+      )
+    );
+    ?>
+    <?php foreach($testimonials as $testimonial) : ?>
+    <div class="testimonial">
+      <p><?php echo $testimonial['testimonial']; ?></p>
+      <p>- <?php echo $testimonial['name']; ?></p>
+    </div>
+    <?php endforeach; ?>
+  </section>
+  <section id="pricing">
+    <h2>Pricing</h2>
+    <table>
+      <tr>
+        <th>Service</th>
+        <th>Price</th>
+      </tr>
+      <tr>
+        <td>Home Service</td>
+        <td>$50/hour</td
+        </td>
+    </tr>
+    <tr>
+        <td>Office Service</td>
+        <td>$40/hour</td>
+    </tr>
+    <tr>
+        <td>Automotive Service</td>
+        <td>$70/hour</td>
+    </tr>
+    <tr>
+        <td>Event Service</td>
+        <td>$300/event</td>
+    </tr>
+    <tr>
+        <td>Repair Service</td>
+        <td>$60/hour</td>
+    </tr>
+    <tr>
+        <td>Personal Grooming</td>
+        <td>$40/session</td>
+    </tr>
+</table>
+</section>
+<script>// JavaScript for responsive design
+    // Get the header cells
+    var headerCells = document.querySelectorAll("th");
+    
+    // Get the table rows
+    var tableRows = document.querySelectorAll("tr");
+    
+    // Add the "data-label" attribute to the table cells
+    for (var i = 0; i < tableRows.length; i++) {
+        var currentRow = tableRows[i];
+        var dataCells = currentRow.querySelectorAll("td");
+        
+        for (var j = 0; j < dataCells.length; j++) {
+            dataCells[j].setAttribute("data-label", headerCells[j].textContent);
+        }
+    }
+    </script>
+</body>
+</html>

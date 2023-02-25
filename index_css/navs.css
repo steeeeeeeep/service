@@ -1,0 +1,109 @@
+
+.topnav a {
+    float: right;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+}
+  
+.topnav a:hover {
+    background-color: #064e40;
+    color: black;
+  }
+  
+.topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+.topnav .icon {
+    display: none;
+  }
+  
+  
+.topnav .search-container {
+    opacity: 50%;
+    color: black;
+  }
+.overlay {
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    position: fixed;
+    display: none;
+    flex-direction: row-reverse;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 16px 4px #00000047;
+    animation: slideIn 0.3s ease-in-out;
+  }
+
+.overlay-content {
+    width: 30%;
+    height: 100%;
+    background-color: #282828;
+    overflow-x: hidden;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2);
+    display: flex;
+  }
+  
+.overlay-content ul {
+  list-style-type: none;
+}
+  
+.overlay a {
+    padding: 8px 0;
+    text-decoration: none;
+    font-size: 20pt;
+    color: #f2f2f2;
+    display: block;
+    transition: 0.3s;
+    animation: slideIn 0.3s ease-in-out;
+  }
+  
+.overlay-content hr {
+    border-width: 1px;
+    background-color: rgb(220,220,220, 0.9);
+    margin: 0 -5px 0 0;
+  }
+  
+.overlay a:hover, .overlay a:focus {  
+    color: #088F8F;
+  }
+
+#logo img{
+  width: 200px;
+}
+
+
+@keyframes slideIn {
+  from {transform: translateX(0);}
+  to {transform: translateX(-1%);}
+}
+
+@media screen and (max-width: 800px) {
+  .topnav #links{display: none;}
+  .topnav a.icon {
+    float: left;
+    display: block;
+  }
+  .side-bar{display: none;}
+  }
+  .menu button {
+    display: flex;
+    background: none;
+    border: none;
+    color: #fff;
+  }
+
+@media screen and (min-width: 800px){
+    #main{
+      display: block;
+    }
+    
+  }
+  

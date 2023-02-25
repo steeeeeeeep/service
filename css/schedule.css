@@ -1,0 +1,58 @@
+section{
+  display: flex;
+  padding: 50px;
+  align-items: center;
+}
+.schedule{
+  padding: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  'Times New Roman', Times, serif;
+}
+.schedule input{
+  display:flex;
+  border: .1em solid #7fe2e2;
+  border-radius: .5rem;
+  font-size: 24px;
+  width: 360px;
+  max-width: 100%;
+  margin: 0 -30px;
+  overflow: hidden;
+  -ms-transform: translateX(15%);
+  transform: translateX(15%);
+}
+.schedule input:hover{
+  cursor: pointer;
+}
+.schedule input:focus{
+  background:  #b4b4b4b9 ;
+}
+.schedule input::selection{
+  color:white;
+}
+.schedule .submit {
+  display:flex;
+  font-size: 24px;
+  color: #000;
+  width: 30%;
+  margin-top: 20px;
+  background: #088F8F;
+  border-radius: .5rem;
+  border: 2px solid #7fe2e2;
+  -ms-transform: translateX(125%);
+  transform: translateX(125%);
+}
+.schedule .submit:hover {
+  cursor: pointer;
+}
+.schedule .submit:active{
+  background: #066868;
+  color:aliceblue;
+  border: 2px solid #fff;
+}
+@media screen and (max-width: 800px) {
+  .schedule{
+    ;
+  }
+  
+}

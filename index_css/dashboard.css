@@ -1,180 +1,464 @@
+@import "https://fonts.googleapis.com/css?family=Raleway";
+
+html, body{
+	height: 100%;
+}
+	
+body{
+	margin: 0px;
+	padding: 0px;
+	font-family: "Raleway", sans-serif;
+	font-weight: lighter;
+	font-size: 12pt;
+  	background-color: #282828;
+  	color: #fff;
+	overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+		
+h1, h2, h3{
+	margin: 0;
+	padding: 0;
+	color: #fff;
+}
+
+a {
+	text-decoration: none;  
+  color: #FFF;
+}
+	
+p, ol, ul{
+	margin-top: 0;
+}
+
+p {
+	line-height: 180%;
+}
+
+ol, ul{
+	padding: 0;
+	list-style: none;
+}
+
+span {
+	font-size: 12pt;
+	
+}	
+
+strong{
+  font-weight: bold;
+}
+
+center{
+  text-align: center;
+  color: #000;
+}
+
 .active {
-    background-color: #121212;
+  background-color: #121212;
+}
+
+/* Set a style for all buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+#side-bar{
+  margin-top: 2em;
+}
+
+#main{
+  margin-left: 240px;
+}
+
+#home{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.modal-container {
+  max-width: 100%;
+  position: relative;
+  z-index: 1;
+  background-color: #282828;
+  padding: 1em;
+  border-radius: 1em;
+}
+
+.modal-container .psw {
+  text-align: center;
+}
+
+.modal-container img {
+  width: 100%;
+}
+
+.center img {
+  width: 100%;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: 700px;
+}
+
+.log-in-btn {
+  width: 30%;
+  position: absolute;
+  margin: 15em auto;
+  z-index: 1;
+  background-color: #088F8F;
+  color: white;
+  font-size: 12pt;
+  padding: 0px 10px;
+  border: 5px solid white;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  align-self: center;
+}
+
+.search {
+  width: 70%;
+  position: absolute;
+  margin: 23em auto;
+  z-index: 1;
+  background-color: #088F8F;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: 2px solid white;
+  cursor: pointer;
+  border-radius: 5px;
+  opacity: 80%;
+  color: black;
+  align-self: center;
+}
+
+.center span{
+  color:#000
+}
+
+.about{
+  padding: 2em;
+  text-align: center;
+}
+
+.about h3{
+  text-align: center;
+  font-weight: bold;
+}
+
+.about span{
+  text-align: justify;
+  text-indent: 2em;
+  color:#fff
+}
+
+span .psw {
+  margin: 16px 0 20px 0;
+}
+
+/* The Modal (background) */
+.modal {
+  overflow: hidden;
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 4; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 60%); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+  max-width: 50%;
+}
+
+.modal-content input{
+  display:inline-block;
+  width: 90%;
+}
+
+.modal-content label{
+  position: absolute;
+  width: 30%;
+}
+
+.modal-content #ps-visible {
+  width: 100px;
+}
+
+#help-con{
+  width: 70%;
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  flex-flow: column wrap;
+  margin: 0 auto;
+  background-color: #fff;
+}
+.title {
+  text-align: center;
+  font-weight: bold;
+  padding: 1em;
+}
+
+.title h3{
+  color: #000;
+}
+.other-option .btn button{
+  width: 10%;
+}
+.other-option span{
+  color: #000;
+}
+/* The Close Button (x) */
+.close {
+  position: fixed;
+  width: 70%;
+  top: 0;
+  display: flex;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+  justify-content: flex-end;
+}
+
+.close a{
+  color: rgb(255, 255, 255);
+}
+
+.close a:hover,
+.close a:focus {
+  color: red;
+  cursor: pointer;
+}
+
+.container-contain {
+  max-height: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  margin: 20px auto;
+  border-radius: 2em;
+  background-color: aliceblue;
+}
+.container-contain div {
+  font-size: 30px;
+  padding: 0 1em;
+  color: #000;
+}
+
+.container-contain div:hover {
+  color: #088F8F;
+}
+
+.right-pic{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin: 2em 0;
+}
+
+.right-pic div{
+  width: 50%;
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.left-pic{
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin: 2em 0;
+}
+
+.left-pic div{
+  width: 50%;
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+a#book {
+  background-image: linear-gradient(45deg, #088f8f, #088f8f94);
+  border-radius: 0.2em;
+  align-self: center;
+  padding: 10px;
+  transition: all 1s ease-in-out;
+  font-size: 12pt;
+}
+
+
+#book:hover {
+  color: #FFF;
+  background-image: linear-gradient(45deg, #0ab1b1, #088f8fcb);
+}
+
+@keyframes small {
+  0% {
+    font-size: 90%;
   }
-  /* Set a style for all buttons */
-  button:hover {
-    opacity: 0.8;
+  50% {
+    font-size: 100%;
   }
-  
-  /* Center the image and position the close button */
-  .imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-    position: relative;
+  100% {
+    font-size: 90%;
   }
+}
+
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+/*** Adding Styles to Company Details ***/
+.company-details{
+	overflow: hidden;
+	padding: 3em 0em;
+	background: #00000063;
+	text-align: center;
+	margin-top: 5em;
+	font-size: 12pt;
+	text-align: center;
+  border-top: 1px solid rgb(90, 90, 90);
+}
+
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-.5 * var(--bs-gutter-x));
+  margin-left: calc(-.5 * var(--bs-gutter-x));
+  justify-content: center;
+}
+
+#footer #col1,
+#footer #col2,
+#footer #col3{
+	width: 320px;
+	max-width: 100%;
+	padding: 0px 40px 0px 40px;
+	color: #E3F0F7;
+}
+	
+#footer #icon{
+	display: block;
+	margin-bottom: 1em;
+	color: #E3F0F7;
+	font-size: 3em;
+}
+
+/*** Adding Styles to Copyright Div ***/
+.copyright
+{
+	overflow: hidden;
+	padding: 3em 0em;
+	border-top: 20px solid rgba(255, 255, 255, 0.08);
+	text-align: center;
+	background: #00000063;
+}
+	
+.copyright p
+{
+	letter-spacing: 1px;
+	font-size: 0.90em;
+	color: rgba(255, 255, 255, 0.6);
+}
+	
+.copyright a
+{
+	text-decoration: none;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+/* Styling Social Icons */
+ul.contact{
+	margin: 0;
+	padding: 2em 0em 0em 0em;
+	list-style: none;
+}
+	
+ul.contact li{
+	display: inline-block;
+	padding: 0em 0.10em;
+	font-size: 1em;
+}
+
+ul.contact li a{
+	color: #FFF;
+	display: inline-block;
+	background: #088F8F;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
   
-  
-  .container {
-    max-width: 100%;
-  }
-  
-  .container .psw {
-    text-align: center;
-  }
-  
-  .container img {
-    padding: 20px;
-    max-width: 100%;
-  }
-  
-  .center {
-    position: relative;
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+
+/*-------------------------------------------------------*/
+
+@media screen and (max-width: 620px) {
+  /* For mobile phones: */
+  .main, .right {
     width: 100%;
   }
-  
-  .center img {
+}
+
+
+@media screen and (max-width: 800px){
+  #main{
     width: 100%;
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100%;
-    height: 500px;
+    margin: 0;
   }
-  
-  .center .btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: #088F8F;
-    color: white;
-    font-size: 16px;
-    padding: 12px 24px;
-    border: 5px solid white;
-    cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
+  .modal-container{
+    width: 100%;
+  }
+  .container-contain {
+    margin: 5px;
+  }
+  #contain{
     max-width: 100%;
   }
-  
-  .center .search {
-    position:absolute;
-    top: 65%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: #088F8F;
-    font-size: 16px;
-    padding: 12px 24px;
-    border: 2px solid white;
-    cursor: pointer;
-    border-radius: 5px;
-    opacity: 80%;
-    color: black;
-    width: 70%;
-  
-  }
-  
-  span .psw {
-    margin: 16px 0 20px 0;
-  }
-  
-  /* The Modal (background) */
-  .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding: 60px 20px 0 20px;
-  }
-  
-  /* Modal Content/Box */
-  .modal-content {
-    background-color: #f8f9fa;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-    max-width: 50%;
-  }
-  
-  /* The Close Button (x) */
-  .close {
-    position: absolute;
-    right: 25px;
-    top: 0;
-    color: #000;
-    font-size: 35px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: red;
-    cursor: pointer;
-  }
-  
-  
-  #myDIV {
-    height:auto;
-    width: 1000px;
-    max-height: 100%;
-    max-width: 100%;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    gap: 1px;
-    background-color: #000;
-    padding: 2px;
-    grid: auto/ auto auto auto;
-    margin-bottom: 20px;
-  }
-  #myDIV div {
-    background-color: #088F8F;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 30px;
-    vertical-align: middle;
-  }
-  
-  
-  #myDIV div:hover {
-    background-color: #282828;
-    color: #088F8F;
-  }
-  
-  /* Add Zoom Animation */
-  .animate {
-    -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.6s
-  }
-  
-  @-webkit-keyframes animatezoom {
-    from {-webkit-transform: scale(0)} 
-    to {-webkit-transform: scale(1)}
-  }
-    
-  @keyframes animatezoom {
-    from {transform: scale(0)} 
-    to {transform: scale(1)}
-  }
-  
-  
-  /*-------------------------------------------------------*/
-  
-  
-  @media screen and (max-width: 620px) {
-    /* For mobile phones: */
-    .menu, .main, .right {
-      width: 100%;
-    }
-  
-    body {
-      background-color: #088F8F;
-    } 
-  }
+
+}

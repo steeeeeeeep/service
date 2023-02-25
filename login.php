@@ -1,31 +1,37 @@
-<?php include('server.php') ?>
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Registration system PHP and MySQL</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-  <div class="header">
-  	<h2>Login</h2>
-  </div>
-	 
-  <form method="post" action="login.php">
-  	<?php include('errors.php'); ?>
-  	<div class="input-group">
-  		<label>Username</label>
-  		<input type="text" name="username" >
-  	</div>
-  	<div class="input-group">
-  		<label>Password</label>
-  		<input type="password" name="password">
-  	</div>
-  	<div class="input-group">
-  		<button type="submit" class="btn" name="login_user">Login</button>
-  	</div>
-  	<p>
-  		Not yet a member? <a href="register.php">Sign up</a>
-  	</p>
-  </form>
-</body>
-</html>
+<?php
+require_once 'session.php';
+require_once 'scripts/DB.php';
+require_once 'scripts/helpers.php';
+
+if (isset($_POST['login_user'])) {
+    $input = clean($_POST);
+
+    $username = $input['username'];
+    $password = $input['password'];
+
+    if ($contact == "7070808080" && $password == "admin123") {
+        $s = new stdClass();
+        $s->name = "admin";
+        $_SESSION['user'] = $s;
+
+        header('Location: ../admin.php');
+        exit();
+    } 
+	
+	else{
+        $stmt = DB::query(
+            "SELECT * FROM sp_list WHERE username=? AND password=?",
+            [$username , $password]
+        );
+        $provider = $stmt->fetch(PDO::FETCH_OBJ);
+
+        if (isset($provider->username)) {
+            $_SESSION['user'] = $provider;
+            header('Location: ../WorkGo-service_provider.php');
+            exit();
+        } else {
+            header('Location: ../login.php?msg=failed');
+            exit();
+        }
+    }
+}

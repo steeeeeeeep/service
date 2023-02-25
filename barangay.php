@@ -1,0 +1,30 @@
+<?
+
+$brgy = ["Apopong",
+  "Baluan",
+  "Batomelong",
+  "Buayan",
+  "Bula",
+  "Calumpang",
+  "City Heights",
+  "Conel",
+  "Dadiangas East",
+  "Dadiangas North",
+  "Dadiangas South",
+  "Dadiangas West",
+  "Fatima",
+  "Katangawan",
+  "Labangal",
+  "Lagao",
+  "Ligaya",
+  "Mabuhay",
+  "Olympog",
+  "San Isidro (Lagao 2nd)",
+  "San Jose",
+  "Siguel",
+  "Sinawal",
+  "Tambler",
+  "Tinagacan",
+  "Upper Labay"];
+
+  ?>
