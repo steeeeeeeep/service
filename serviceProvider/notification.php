@@ -1,5 +1,5 @@
 <?php require '../scripts/db_conn.php';?>
-<?php require_once '../session.php';?>
+<?php require_once '../scripts/session.php';?>
 <?php
 if (!isset($_SESSION['username'])) {
   	$_SESSION['msg'] = "You must log in first";
@@ -29,7 +29,8 @@ if (!isset($_SESSION['username'])) {
 	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/navs.css">
+    <link rel="stylesheet" href="../css/loader.css">
+    <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/notify.css">
 
 </head>
@@ -60,7 +61,7 @@ if (!isset($_SESSION['username'])) {
     <h1 style="margin-top: 100px; font-size: 20pt; text-align: center;">Notification</h1>
     
     <?php
-        $query = $db->query("SELECT * FROM `feedback` NATURAL JOIN `customer` NATURAL JOIN `service_info` WHERE provider_id = '$_SESSION[provider_id]' ORDER BY date DESC") or die(mysqli_error());
+        $query = $db_home_service_111->query("SELECT * FROM `feedback` NATURAL JOIN `customer` NATURAL JOIN `service_info` WHERE provider_id = '$_SESSION[provider_id]' ORDER BY date DESC") or die(mysqli_error());
         $count = $query->num_rows;
         while($fetch = $query->fetch_array()){
     ?>
@@ -101,7 +102,7 @@ if (!isset($_SESSION['username'])) {
     </div>
     <?php 
     }
-$db->close();
+$db_home_service_111->close();
 ?>
 <script src="../js/nav.js"></script>
 </body>

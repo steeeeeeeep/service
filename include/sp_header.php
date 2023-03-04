@@ -2,7 +2,7 @@
 	
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <?php 
-		$query = $db->query("SELECT * FROM sp_list WHERE `provider_id`='$_SESSION[provider_id]'") or die(mysqli_error());
+		$query = $db_home_service_111->query("SELECT * FROM workers WHERE `provider_id`='$_SESSION[provider_id]'") or die(mysqli_error());
 		while($fetch = $query->fetch_array()){
 ?>
 		<nav>
@@ -10,9 +10,9 @@
 			
 
 			<div class="topnav" id="myTopnav">
-				<div id="logo">
-					<img src="../images/Logo-1.png" ></div>
-					<div class="menu"><button class="fa fa-bars"></button></div>
+				<div class="menu"><button class="fa fa-bars"></button></div>
+				</div><div id="logo">
+					<a href="dashboard.php"><img src="../images/Logo-1.png"></a>
 				</div>
 			</div>
 

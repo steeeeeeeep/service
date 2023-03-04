@@ -106,7 +106,7 @@ hr{
   column-count: 1;
 }
 
-@media only screen and (max-width: 800px){
+@media only screen and (max-width: 1000px){
   .container-fluid{
     border: 1px solid aliceblue;
     display: block;

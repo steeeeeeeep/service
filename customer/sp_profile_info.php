@@ -1,4 +1,4 @@
-<?php require_once '../session.php';?>
+<?php require_once '../scripts/session.php';?>
 <?php include '../include/config.php';
   require '../scripts/db_conn.php';?>
 <?php
@@ -19,8 +19,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../images/Logo-Title.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/navs.css">
+    <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/loader.css">
     <link rel="stylesheet" href="../css/profile.css">
     <title>WorkGo.ph</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -30,7 +31,7 @@
 <?php require_once '../include/c_header.php';?>  
 
 <?php 
-    $query = $db->query(" SELECT * FROM sp_list NATURAL JOIN service_info NATURAL JOIN provider_info WHERE `provider_id`='$_REQUEST[provider_id]'");
+    $query = $db_home_service_111->query(" SELECT * FROM workers NATURAL JOIN service_info NATURAL JOIN provider_info WHERE `provider_id`='$_REQUEST[provider_id]'");
     $fetch = $query->fetch_array();
 ?>
 
@@ -78,7 +79,7 @@
 </div>
 
 <?php
-    $db->close();
+    $db_home_service_111->close();
     ?>
 <script>
 
@@ -112,7 +113,5 @@
 }
 
 </script>
-<script src="../js/jquery.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
 </body>
 </html>

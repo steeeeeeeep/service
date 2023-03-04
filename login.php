@@ -20,7 +20,7 @@ if (isset($_POST['login_user'])) {
 	
 	else{
         $stmt = DB::query(
-            "SELECT * FROM sp_list WHERE username=? AND password=?",
+            "SELECT * FROM workers WHERE username=? AND password=?",
             [$username , $password]
         );
         $provider = $stmt->fetch(PDO::FETCH_OBJ);

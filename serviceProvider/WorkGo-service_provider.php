@@ -1,6 +1,6 @@
 
 <?php 
-  require_once '../session.php';
+  require_once '../scripts/session.php';
   require '../scripts/db_conn.php';
 
   if (!isset($_SESSION['username'])) {
@@ -25,7 +25,7 @@
         <title>WorkGo.ph/</title>
         <link rel="icon" type="image/x-icon" href="images/Logo-Title.png">
         <link rel="stylesheet" href="../css/main.css">
-        <link rel="stylesheet" href="../css/navs.css">
+        <link rel="stylesheet" href="../css/nav.css">
     	<link rel="stylesheet" href="../css/reqs.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" 
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -88,7 +88,7 @@
 					<div class="contain1">
 						<div class="info">
 						<?php 
-							$query = $db->query(" SELECT * FROM sp_list NATURAL JOIN service_info NATURAL JOIN provider_info WHERE `provider_id`='$_SESSION[provider_id]'");
+							$query = $db_home_service_111->query(" SELECT * FROM workers NATURAL JOIN service_info NATURAL JOIN provider_info WHERE `provider_id`='$_SESSION[provider_id]'");
 							$fetch = $query->fetch_array();
 						?>
 						<div class="main2">

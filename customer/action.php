@@ -1,5 +1,5 @@
 <?php
-    require_once 'session.php'
+    require_once '/scripts/session.php'
 ?>
 <?php
     if(!isset($_SESSION['provider_id'])){
@@ -8,7 +8,7 @@
 ?>
  <?php
       $conn = new mysqli("localhost","root","","home_service") or die(mysqli_error());
-      $query = $conn->query("SELECT * FROM `sp_list` WHERE `provider_id` = '$_SESSION[provider_id]'") or die(mysqli_error());
+      $query = $conn->query("SELECT * FROM `workers` WHERE `provider_id` = '$_SESSION[provider_id]'") or die(mysqli_error());
       $fetch = $query->fetch_array();
     ?>
 
@@ -17,9 +17,9 @@
 $hostname = "localhost";
 $username = "root";
 $password = "";
-$dbname = "home_service";
+$db_home_service_111name = "home_service";
 
-$con = mysqli_connect($hostname, $username, $password, $dbname) or die("Error: " . mysqli_error($con));
+$con = mysqli_connect($hostname, $username, $password, $db_home_service_111name) or die("Error: " . mysqli_error($con));
 
 // fetch records
 $result = @mysqli_query($con, "SELECT * FROM bookings") or die("Error: " . mysqli_error($con));

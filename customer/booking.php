@@ -1,5 +1,5 @@
 <?php
-    include_once '../session.php';
+    include_once '../scripts/session.php';
     include_once '../logincheck.php';
     include_once '../scripts/db_conn.php';
 ?>
@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/loader.css">
     <link href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" rel="Stylesheet"
     type="text/css" />
 
@@ -107,7 +108,7 @@
         <div class="card">
             <div class="card-body">
                 <?php
-                $query = $db->query("SELECT * FROM `customer` WHERE `customer_id`='$_SESSION[customer_id]'") or die(mysqli_error());
+                $query = $db_home_service_111->query("SELECT * FROM `customer` WHERE `customer_id`='$_SESSION[customer_id]'") or die(mysqli_error());
                 while($fetch = $query->fetch_array()){
             ?>
             
@@ -171,7 +172,7 @@
                 </form>
                 <?php
             
-                $db-> close();
+                $db_home_service_111-> close();
                 }?>
 
 </body>
@@ -184,6 +185,6 @@
           });
   </script> 
     <script src="../js/main1.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="../js/loaders.js"></script>
     <script type="text/javascript" src="../js/jquery-ui.js"></script>
 </html>

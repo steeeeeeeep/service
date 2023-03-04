@@ -1,6 +1,7 @@
 <?php 
-include_once "service_pro_server.php";
-include_once "customer_server.php";
+require_once "service_pro_server.php";
+require_once "customer_server.php";
+include_once "scripts/db_conn.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,8 +15,8 @@ include_once "customer_server.php";
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="index_css/dashboard.css" rel="stylesheet"/>
 <link href="index_css/login.css" rel="stylesheet"/>
-<link href="index_css/navs.css" rel="stylesheet"/>
-<link rel="stylesheet" href="css/navs.css">
+<link href="index_css/nav.css" rel="stylesheet"/>
+<link rel="stylesheet" href="css/nav.css">
 <title>WorkGo.ph/Dashboard</title>
 
 <style>
@@ -56,6 +57,12 @@ include_once "customer_server.php";
 			<div class="db-pic">
 			<img src="images/Dashboardpic.png" class="dashboard-image" />
 			</div>
+			<?php 
+			
+				$query = $db_home_service_111->query("SELECT * FROM `service_info` NATURAL JOIN `services` NATURAL JOIN `provider_info`") or die(mysqli_error());
+				
+
+			?>
 			<div class="search">
 					<form action="#">
 					<input type="text" placeholder="What Service do you need?" name="search">
@@ -160,7 +167,7 @@ include_once "customer_server.php";
 	<div id="id01" class="modal">
 
 		<form class="modal-content animate" action="index.php" method="post">
-			<br><div class="warning"><span style="color: #ff7c7c; font-size:light;"><?php include('errors.php');?></span>
+			<br><div class="warning"><span style="color: #ff7c7c; font-size:light;"><?php include('scripts/errors.php');?></span>
 		</div>
 				<div class="modal-container" style="background: none">
 				<img src="images/Logo-1.png" />
@@ -232,7 +239,7 @@ window.onclick = function(event) {
     }
 }
 </script>
-<script src="js/navs.js"></script>
+<script src="../js/navs.js"></script>
 <?php require_once 'include/footer.php'?>
 </body>
 </html>

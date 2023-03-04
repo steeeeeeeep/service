@@ -114,10 +114,10 @@ INSERT INTO `service_info` (`provider_id`, `service_id`, `service_type`, `servic
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sp_list`
+-- Table structure for table `workers`
 --
 
-CREATE TABLE `sp_list` (
+CREATE TABLE `workers` (
   `provider_id` int(20) NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
@@ -131,10 +131,10 @@ CREATE TABLE `sp_list` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `sp_list`
+-- Dumping data for table `workers`
 --
 
-INSERT INTO `sp_list` (`provider_id`, `firstname`, `lastname`, `username`, `email`, `password`, `contact`, `barangay`, `service_type`, `photo`) VALUES
+INSERT INTO `workers` (`provider_id`, `firstname`, `lastname`, `username`, `email`, `password`, `contact`, `barangay`, `service_type`, `photo`) VALUES
 (3, 'Juan', 'Dela Cruz', 'JuanD', 'Juan@gmail.com', '25f9e794323b453885f5181f1b624d0b', 2147483647, 'Fatima', 'Cleaning', '6368ddafa683d.png'),
 (4, 'Juan', 'Dela Cruz', 'JuanD', 'Juan@gmail.com', '25f9e794323b453885f5181f1b624d0b', 2147483647, 'Fatima', 'Cleaning', '6368ddafa683d.png'),
 (5, 'Lito', 'Pidla', 'Lito', 'Lito2@gmail.com', '25d55ad283aa400af464c76d713c07ad', 2147483647, 'Apopong', 'Auto Mechanic', '6368e67e32cb3.png'),
@@ -186,9 +186,9 @@ ALTER TABLE `service_info`
   ADD KEY `provider_id` (`provider_id`);
 
 --
--- Indexes for table `sp_list`
+-- Indexes for table `workers`
 --
-ALTER TABLE `sp_list`
+ALTER TABLE `workers`
   ADD PRIMARY KEY (`provider_id`);
 
 --
@@ -228,9 +228,9 @@ ALTER TABLE `service_info`
   MODIFY `service_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `sp_list`
+-- AUTO_INCREMENT for table `workers`
 --
-ALTER TABLE `sp_list`
+ALTER TABLE `workers`
   MODIFY `provider_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
@@ -253,19 +253,19 @@ ALTER TABLE `customer_info`
 -- Constraints for table `provider_info`
 --
 ALTER TABLE `provider_info`
-  ADD CONSTRAINT `provider_info_ibfk_1` FOREIGN KEY (`provider_id`) REFERENCES `sp_list` (`provider_id`);
+  ADD CONSTRAINT `provider_info_ibfk_1` FOREIGN KEY (`provider_id`) REFERENCES `workers` (`provider_id`);
 
 --
 -- Constraints for table `service_info`
 --
 ALTER TABLE `service_info`
-  ADD CONSTRAINT `service_info_ibfk_1` FOREIGN KEY (`provider_id`) REFERENCES `sp_list` (`provider_id`);
+  ADD CONSTRAINT `service_info_ibfk_1` FOREIGN KEY (`provider_id`) REFERENCES `workers` (`provider_id`);
 
 --
 -- Constraints for table `user_address`
 --
 ALTER TABLE `user_address`
-  ADD CONSTRAINT `user_address_ibfk_1` FOREIGN KEY (`provider_id`) REFERENCES `sp_list` (`provider_id`),
+  ADD CONSTRAINT `user_address_ibfk_1` FOREIGN KEY (`provider_id`) REFERENCES `workers` (`provider_id`),
   ADD CONSTRAINT `user_address_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`);
 COMMIT;
 

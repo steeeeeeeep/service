@@ -1,10 +1,5 @@
-<style>
-#footer{
-	margin-left: 240px;
-}
-</style>
 <!-- Footer Menu -->
-<footer id="footer">
+<footer id="footer" class="footer">
 
 <!-- Company Details -->
 <!-- 1. Address

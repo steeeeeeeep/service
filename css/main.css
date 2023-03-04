@@ -108,59 +108,6 @@ header {
 	text-align: center
 }
 
-	
-#logo{
-	float: left;
-	padding: none;
-	margin: none;
-	width: 200px;
-}
-
-#logo img{
-	width: 200px;
-	float: left;
-}
-
-#menu{
-	float: right;
-	width: 70%;
-	height: 100%;
-	margin: none;
-}
-	
-#menu ul{
-	text-align: center;
-	float: right;
-	margin: none;
-	background: #0074D9;
-}
-	
-#menu li{
-	display: inline-block;
-	padding: none;
-	margin: none;
-}
-	
-#menu li a, #menu li span{
-	display: inline-block;
-	padding: 0em 1.5em;
-	text-decoration: none;
-	font-weight: 600;
-	text-transform: uppercase;
-	line-height: 60px;
-}
-	
-#menu li a{
-		
-	color: #FFF;
-}
-	
-#menu li:hover a, #menu li span{
-	background: #FFF;
-	color: #0074D9;
-	border-left: 1px solid #0074D9;
-	text-decoration: none;
-}
 
 .bg{ 
 	-webkit-backdrop-filter: blur(30px);
@@ -463,12 +410,12 @@ button.red:hover {
 }
 
 .row {
-    columns: 100px 3;
+    display: grid;
+    grid: auto/auto auto auto;
+    gap: 15px;
     width: 100%;
-    max-width: 100%;
-    align-content: horizontal;
     margin: 10px auto;
-    text-align: center;
+	padding: 10px;
 }
 
 #ser {
@@ -542,8 +489,6 @@ div.row {
   font-size: 12pt;
   color: #088F8F;
 }
-
-
 /*-------------------footer--------------*/
 /**********************************/
 /*		 Styling Footer	 */
@@ -628,7 +573,7 @@ ul.contact li a{
 #welcome img {
   vertical-align: middle; 
   max-width: 100%;
-  width: 800px;
+  width: 1000px;
   height: 550px;
 }
 
@@ -636,7 +581,7 @@ ul.contact li a{
 /* Slideshow container */
 .slideshow-container {
 	width: 100%;
-  	max-width: 800px;
+  	max-width: 1000px;
   	margin: 10px auto;
 }
 
@@ -700,25 +645,25 @@ ul.contact li a{
     background: #088F8F;
 }
 /* ---------------------------------------------- */
-@media  screen and(min-width: 800px) {
+@media  screen and(min-width: 1000px) {
 	.side-bar{
 		display: flex;
 	}
 }
 
-@media only screen and (max-width: 800px){
+@media only screen and (max-width: 1000px){
 	.main{
 		margin: 0;
 		
 	}
-	#footer{
+	footer#footer{
 		margin: 0;
 	}
 	.services{
 		columns: 1;
 	}
 
-	.side-bar{
+	div#side-bar{
 		display: none;
 	}
 

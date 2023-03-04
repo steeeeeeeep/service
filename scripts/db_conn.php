@@ -2,10 +2,10 @@
   
     // connect to the database
     $host = "localhost";
-    $db_uname = "root";
-    $db_pass = "";
+    $db_home_service_111_uname = "root";
+    $db_home_service_111_pass = "";
     $database = "home_service";
-    $db = new mysqli($host, $db_uname, $db_pass, $database);
+    $db_home_service_111 = new mysqli($host, $db_home_service_111_uname, $db_home_service_111_pass, $database);
 
 
   ?>

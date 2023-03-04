@@ -1,5 +1,5 @@
 <?php 
-  require_once '../session.php'; 
+  require_once '../scripts/session.php'; 
   require_once '../logincheck.php'; 
   require_once '../scripts/db_conn.php';
 
@@ -56,13 +56,14 @@
 	<title>WorkGo.ph</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 	<link rel="icon" type="image/x-icon" href="../images/Logo-Title.png">
+	<link rel="stylesheet" href="../css/loader.css">
 	<link rel="stylesheet" href="../css/main.css">
-	<link rel="stylesheet" href="../css/navs.css">
+	<link rel="stylesheet" href="../css/nav.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 </head>
-<body>
+<body onload="loadingPage()">
 <style>
 	#search:hover{
 		background: black;
@@ -74,7 +75,10 @@
 		color: #088F8F;
 	}
 </style>
+	<div id="center"><img src="../images/Logo-Title.png" alt="Logo"><div id="loader"></div></div>
+
 	<?php require_once '../include/c_header.php';?>
+	<div id="loading" class="animate-bottom" style="display: none">
 	<div class="main">
 		<div class="main1">
 
@@ -113,7 +117,7 @@
 										<option disabled>Services</option>
 										<?php 
 										include_once 'scripts/db_conn.php';
-										$query = $db->query("SELECT * FROM services");
+										$query = $db_home_service_111->query("SELECT * FROM services");
 										while($fetch = $query->fetch_array()){?>
 										<option value="<?php echo $fetch['service_name'];?>"><?php echo $fetch['service_name'];?>
 										</option>
@@ -158,7 +162,7 @@
 					</div>
 				</section>
 				<?php
-    				$db->close();
+    				$db_home_service_111->close();
 				?>
 				
 				<section>
@@ -289,5 +293,6 @@
 			}
 	</script>
 	<script src="../js/jquery.js"></script>
-	<script src="../js/services.js"></script>
+	<script src="../js/services.js"></script>  
+	<script src="../js/loaders.js"></script>
 	<?php include_once '../include/footer.php'; 

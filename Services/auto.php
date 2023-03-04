@@ -1,6 +1,6 @@
 <?php
 require_once '../scripts/db_conn.php';
-require_once '../session.php';
+require_once '../scripts/session.php';
 
 if(!isset($_SESSION['username']) || !isset($_SESSION['customer_id'])){
 header('location: index.php');
@@ -45,6 +45,7 @@ header('location: index.php');
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/loader.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 </head>
 <body>
@@ -131,7 +132,7 @@ header('location: index.php');
         <input type="text" name="service_type" id="txt" hidden>
         <div class="contains">
             <?php
-                $query = $db->query("SELECT * FROM `services` WHERE cat_id='4444'");
+                $query = $db_home_service_111->query("SELECT * FROM `services` WHERE cat_id='4444'");
                 while($fetch = $query->fetch_array()){
             ?>
             <button type="button" name="service_type" value="Office and Facility Movers" onclick="selectOption(this)"><?php echo $fetch['service_name']?></button><br>
@@ -163,7 +164,7 @@ header('location: index.php');
         </table>
     </div>
     <?php
-    $db->close();
+    $db_home_service_111->close();
     ?>
 
     <script src="../js/jquery.js"></script>
