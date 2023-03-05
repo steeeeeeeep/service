@@ -19,5 +19,5 @@
 		}
 
 		
-		$db->close();
+		$db_home_service_111->close();
 ?>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-	require_once '../session.php';
+	require_once '../scripts/session.php';
 	require_once '../scripts/db_conn.php';
 	
 	if (!isset($_SESSION['username'])) {
@@ -22,13 +22,14 @@
 		<meta charset = "utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>WorkGo.ph</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
         <link rel="icon" type="image/x-icon" href=
                 "../images/Logo-Title.png">
 		<meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="js/nav.js"></script>
+        <script src="../js/navs.js"></script>
         <link rel="stylesheet" href="../css/main.css">
+
         <link rel="stylesheet" href="../css/navi.css">
 		<link rel="stylesheet" href="../css/request.css">
 	</head>
@@ -41,7 +42,7 @@
 					<button onclick="history.back()"><i class="fa fa-arrow-left" style="border:none;"></i></button>
 					Fill up form</div>
 				<?php
-					$query = $db->query("SELECT * FROM `bookings` NATURAL JOIN `transactions` NATURAL JOIN `customer` NATURAL JOIN `service_info` WHERE `booking_id` = '$_REQUEST[booking_id]'") or die(mysqli_error());
+					$query = $db_home_service_111->query("SELECT * FROM `bookings` NATURAL JOIN `transactions` NATURAL JOIN `customer` NATURAL JOIN `service_info` WHERE `booking_id` = '$_REQUEST[booking_id]'") or die(mysqli_error());
 					$fetch = $query->fetch_array();
 				?>
 				<br />
@@ -74,11 +75,9 @@
 		</div>
 	</div>
 	<?php
-    $db->close();
+    $db_home_service_111->close();
 	?>
 	<br />
 	<br />
-</body>
-<script src = "../js/jquery.js"></script>
-<script src = "../js/bootstrap.js"></script>	
+</body>	
 </html>

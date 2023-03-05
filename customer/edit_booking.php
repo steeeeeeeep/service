@@ -1,5 +1,5 @@
 <?php
-    include_once '../session.php';
+    include_once '../scripts/session.php';
     include_once '../scripts/db_conn.php';
 
     $booking_id = $_GET['booking_id'];
@@ -49,7 +49,7 @@
 <body>
         
             <?php
-                $query = $db->query("SELECT * FROM `bookings` LEFT JOIN  `sp_list` ON sp_list.provider_id=bookings.provider_id WHERE `booking_id`='$booking_id'") or die(mysqli_error());
+                $query = $db_home_service_111->query("SELECT * FROM `bookings` LEFT JOIN  `workers` ON workers.provider_id=bookings.provider_id WHERE `booking_id`='$booking_id'") or die(mysqli_error());
                 while($fetch = $query->fetch_array()){
             ?>
 
@@ -81,7 +81,7 @@
                             $p_id = $fetch['provider_id'];
 
                             $num_sched = [];
-                            $query1 = $db->query("SELECT * FROM `bookings` WHERE `booking_status`='Accepted' && `provider_id`='$p_id'") or die(mysqli_error());
+                            $query1 = $db_home_service_111->query("SELECT * FROM `bookings` WHERE `booking_status`='Accepted' && `provider_id`='$p_id'") or die(mysqli_error());
                             while($fetch1 = $query1->fetch_array()){
                                 $num_sched[] = date('Y-m-d', strtotime($fetch1['sched_date']));
                             }
@@ -90,11 +90,12 @@
                         <input type="text" name="now" id="" value="<?php echo date('y-m-d H:i')?>" hidden>
                         <script src="../js/date.js"></script>
                         <script>
-                            $(document).ready(function() {
+                            $(function() {
                                 var num_sched = <?php echo json_encode($num_sched); ?>;
                                 $("#sched_date").on("input", function() {
                                     var entered_input = $(this).val();
                                     var entered_date = entered_input.split('T')[0];
+                                    console.log(entered_date);
                                     if ($.inArray(entered_date, num_sched) !== -1) {
                                         alert("This date is already occupied. Please choose another date.");
                                         $(this).val("");
@@ -114,8 +115,9 @@
 
                     <div class="form-group">
                         <label for="">Your Concern here</label>
-                        <textarea id="queries" name="queries" class="form-control" maxlength="255"
-                            placeholder="Any queries..?" value="<?php echo $fetch['queries'] ?>"></textarea>
+                        <input id="queries" name="queries" class="form-control" maxlength="255"
+                            placeholder="Any queries..?" value="<?php echo $fetch['queries'];?>">
+                        </input>
                     </div>
 
                     <div class="form-group">
@@ -126,7 +128,7 @@
                 </form>
                 <?php
                 
-                $db-> close();}?>
+                $db_home_service_111-> close();}?>
 
 </body>
  
@@ -137,5 +139,4 @@
           }, 3000);
           });
   </script> 
-  <script type="text/javascript" src="../js/jquery-ui.js"></script>
 </html>

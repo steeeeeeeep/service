@@ -1,4 +1,4 @@
-<?php require_once '../session.php';?>
+<?php require_once '../scripts/session.php';?>
 <?php require '../scripts/db_conn.php';?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,11 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WorkGo.ph</title>
 	<link rel="icon" type="image/x-icon" href="../images/Logo-Title.png">
+<link rel="stylesheet" href="../css/loader.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="../css/main.css">
-	<link rel="stylesheet" href="../css/navs.css">
+	<link rel="stylesheet" href="../css/nav.css">
 	<link rel="stylesheet" href="../css/reqs.css">
 </head>
 <body>
@@ -46,17 +46,17 @@
         <div class="panel panel-default">
             <div class="panel-body">
 			<?php
-				$q_p = $db->query("SELECT COUNT(*) as total FROM `bookings` WHERE `booking_status` = 'Pending' && `provider_id` = '$_SESSION[provider_id]'") or die(mysqli_error());
+				$q_p = $db_home_service_111->query("SELECT COUNT(*) as total FROM `bookings` WHERE `booking_status` = 'Pending' && `provider_id` = '$_SESSION[provider_id]'") or die(mysqli_error());
 				$f_p = $q_p->fetch_array();
-				$q_a = $db->query("SELECT COUNT(*) as total FROM `bookings` WHERE `booking_status` = 'Accepted' && `provider_id` = '$_SESSION[provider_id]'") or die(mysqli_error());
+				$q_a = $db_home_service_111->query("SELECT COUNT(*) as total FROM `bookings` WHERE `booking_status` = 'Accepted' && `provider_id` = '$_SESSION[provider_id]'") or die(mysqli_error());
 				$f_a = $q_a->fetch_array();
-				$q_r = $db->query("SELECT COUNT(*) as total FROM `bookings` WHERE `booking_status` = 'Rejected' && `provider_id` = '$_SESSION[provider_id]'") or die(mysqli_error());
+				$q_r = $db_home_service_111->query("SELECT COUNT(*) as total FROM `bookings` WHERE `booking_status` = 'Rejected' && `provider_id` = '$_SESSION[provider_id]'") or die(mysqli_error());
 				$f_r = $q_r->fetch_array();
 			?>
 			
 				<h1>PENDING REQUEST</h1><br>
 				<div class="dashboard">
-					<div id="box" class="success"><a><div><i class="fa fa-clock-o">		<?php echo $f_p['total']?></i></div></span>Pendings</a></div>
+					<div id="box" class="success"><a><div><i class="fa fa-clock-o">		<?php echo $f_p['total']?></i></div></span>Request</a></div>
 					<div id="box" class="info1"><a href="accepted_req.php"><div><i class="fa fa-check-circle">		<?php echo $f_a['total']?></i></div></span> Accepted</a></div>
 					<div id="box" class="warning"><a href = "checkout.php"><div class="icon"><i class = "fa fa-eye"></i></div><div><span>Completed Task</span></div></a></div>
 					<div id="box" class="danger"><a href = "rejected.php"><div class="icon"><i class = "fa fa-trash">		<?php echo $f_r['total']?></i></div><div><span>Rejected</span></div></a></div>
@@ -69,6 +69,7 @@
 							<th>Name</th>
 							<th>Contact No</th>
 							<th>Service Type</th>
+							<th>Query</th>
 							<th>Booking Date</th>
 							<th>Service Request Date</th>
 							<th>Status</th>
@@ -77,17 +78,17 @@
 					</thead>
 					<tbody>
 						<?php 
-							$query = $db->query("SELECT * FROM `bookings` NATURAL JOIN `transactions` NATURAL JOIN `customer` NATURAL JOIN service_info WHERE `booking_status` = 'Pending' && `provider_id`='$_SESSION[provider_id]' ORDER BY sched_date DESC") or die(mysqli_error());
+							$query = $db_home_service_111->query("SELECT * FROM `bookings` NATURAL JOIN `transactions` NATURAL JOIN `customer` NATURAL JOIN service_info WHERE `booking_status` = 'Pending' && `provider_id`='$_SESSION[provider_id]' ORDER BY sched_date DESC") or die(mysqli_error());
 							$count = $query->num_rows;
 
-							$query2 = $db->query("SELECT * FROM `bookings` NATURAL JOIN `transactions` NATURAL JOIN `customer` NATURAL JOIN service_info WHERE `booking_status` = 'Accepted' && `provider_id`='$_SESSION[provider_id]' ORDER BY sched_date DESC") or die(mysqli_error());
+							$query2 = $db_home_service_111->query("SELECT * FROM `bookings` NATURAL JOIN `transactions` NATURAL JOIN `customer` NATURAL JOIN service_info WHERE `booking_status` = 'Accepted' && `provider_id`='$_SESSION[provider_id]' ORDER BY sched_date DESC") or die(mysqli_error());
 							$sched = [];
 
 							while($fetch2 = $query2->fetch_array()){
 								$sched[]= date('Y-m-d', strtotime($fetch2['sched_date']));
 								echo '<script>console.log('.json_encode($sched).');</script>';
 								if (!$query2) {
-									die(mysqli_error($db));
+									die(mysqli_error($db_home_service_111));
 								}
 							}
 		
@@ -105,6 +106,13 @@
 							<td><?php echo $fetch['firstname']." ".$fetch['lastname']?></td>
 							<td><?php echo $fetch['contact']?></td>
 							<td><?php echo $fetch['service_type']?></td>
+							<td><?php 
+							if ($fetch['queries'] ==null){
+								echo "<span style='color: gray;'>None</span>";}
+							else{
+								echo $fetch['queries'];
+							}
+							?></td>
 							<td><?php echo date('M d, Y @ h:i A', strtotime($fetch['booking_date']))?></td>
 							<td style='color:#ff0000;'><strong><?php 
 							if($fetch['sched_date'] <= date("Y-m-d ")){
@@ -163,7 +171,7 @@
 
 						}
 
-						$db->close();
+						$db_home_service_111->close();
 						?>
 					</tbody>
                 </table>

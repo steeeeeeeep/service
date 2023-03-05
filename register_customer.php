@@ -1,4 +1,5 @@
-<?php include_once('customer_server.php');
+<?php
+require_once "customer_server.php";
 $brgy = ["Apopong",
 "Baluan",
 "Batomelong",
@@ -32,8 +33,8 @@ $brgy = ["Apopong",
 <head>
     <meta name="viewport" content="width=device-wid, intial-scale=1" 
     meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="../images/Logo-Title.png">
-    <link href="css/reg.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/Logo-Title.png">
+    <link href="css/register.css" rel="stylesheet">
     <title>Register</title>
 </head>
 
@@ -52,7 +53,8 @@ $brgy = ["Apopong",
                 <div class="content">
                     <form method="post" action="register_customer.php" 
                     enctype="multipart/form-data">
-                        <?php include('errors.php'); ?>
+                        <?php include('scripts/errors.php'); ?>
+                        <div class="error" style="color:red"></div>
                     <div class="user-details">
                         <div class="input-box">
                             <span class="details">First Name</span>
@@ -151,10 +153,19 @@ $brgy = ["Apopong",
             </div>
         </div>
     </div>
-    
-    <?php
-    $db->close();
-    ?>
+    <script>
+        $(document).ready(function() {
+            $('select[name="barangay"]').change(function() {
+                var selectedOption = $(this).val();
+                if (selectedOption === '') {
+                    $('#error').text('Please select an option.').show();
+                } else {
+                    $('#error').text('').hide();
+                }
+            });
+        });
+
+    </script>
 
 </body>
 </html>

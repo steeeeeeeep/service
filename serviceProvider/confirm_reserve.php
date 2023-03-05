@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-	require_once '../session.php';
+	require_once '../scripts/session.php';
 	require_once '../scripts/db_conn.php';
 	
 	if (!isset($_SESSION['username'])) {
@@ -74,7 +74,7 @@
 					<button onclick="history.back()" class="back"><i class="fa fa-arrow-left" style="border:none;"></i></button>
 					<span>back</span></div>
 				<?php
-					$query = $db->query("SELECT * FROM `bookings` NATURAL JOIN `customer` NATURAL JOIN `service_info` WHERE `booking_id` = '$_REQUEST[booking_id]'") or die(mysqli_error());
+					$query = $db_home_service_111->query("SELECT * FROM `bookings` NATURAL JOIN `customer` NATURAL JOIN `service_info` WHERE `booking_id` = '$_REQUEST[booking_id]'") or die(mysqli_error());
 					$fetch = $query->fetch_array();
 				?>
 				<br />
@@ -118,7 +118,7 @@
 	<br />
 	<?php
 	
-	$db->close();
+	$db_home_service_111->close();
 	?>
 </body>
 <script src = "../js/jquery.js"></script>

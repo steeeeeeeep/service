@@ -13,20 +13,6 @@ function myFunction1() {
 }
 
 
-
-//for phone navigation
-function openNav() {
-  
-  document.getElementById("myNav").style.display = "flex";
-  document.getElementById("myNav").style.width = "100%";
-	
-}
-
-function closeNav() {
-  document.getElementById("myNav").style.width = "0%";
-	
-}
-
 function PSvisible() {
   var x = document.getElementById("floatingPassword");
   if (x.type === "password") {

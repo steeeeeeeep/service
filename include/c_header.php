@@ -2,7 +2,7 @@
 	
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <?php 
-		$query = $db->query("SELECT * FROM customer WHERE `customer_id`='$_SESSION[customer_id]'") or die(mysqli_error());
+		$query = $db_home_service_111->query("SELECT * FROM customer WHERE `customer_id`='$_SESSION[customer_id]'") or die(mysqli_error());
 		while($fetch = $query->fetch_array()){
 ?>
 		<nav>
@@ -10,9 +10,11 @@
 			
 
 			<div class="topnav" id="myTopnav">
+				<div class="menu">
+					<button class="fa fa-bars" id="menu_btn"></button>
+				</div>
 				<div id="logo">
-					<img src="../images/Logo-1.png" ></div>
-					<div class="menu"><button class="fa fa-bars" id="menu_btn"></button></div>
+					<a href="dashboard.php"><img src="../images/Logo-1.png"></a>
 				</div>
 			</div>
 
@@ -32,8 +34,8 @@
 						<a href="../Services/events.php">Event Services</a>
 					</div></div>
 					<div id="link" class="req"><a href="request.php"><span>Request<i class="fa fa-plus-circle"></i></span><span class='notif'><?php echo $req['total']?></span></a></div>
-					<div id="link" class="help"><a href="#help"><span>Help<i class="fa fa-question-circle" ></i></span></a></div>
-					<div id="link" class="contact"><a href="../contact.php"><span>Contact<i class="fa fa-phone" ></i></span></a></div>
+					<div id="link" class="help"><a href="WorkGO_customer.php#help"><span>Help<i class="fa fa-question-circle" ></i></span></a></div>
+					<div id="link" class="contact"><a href="WorkGO_customer.php#contact"><span>Contact<i class="fa fa-phone" ></i></span></a></div>
 				</div><hr>
 				
 				<div class="logout">

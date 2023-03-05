@@ -85,7 +85,7 @@
   to {transform: translateX(-1%);}
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
   .topnav #links{display: none;}
   .topnav a.icon {
     float: left;
@@ -100,7 +100,7 @@
     color: #fff;
   }
 
-@media screen and (min-width: 800px){
+@media screen and (min-width: 1000px){
     #main{
       display: block;
     }

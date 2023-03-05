@@ -34,8 +34,8 @@ $brgy = ["Apopong",
     <link rel="icon" type="image/x-icon" href="../images/Logo-Title.png">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" 
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link href="css/reg.css" rel="stylesheet">
-    <script src="js/nav.js"></script>
+    <link href="css/register.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Register</title>
 </head>
 
@@ -48,7 +48,7 @@ $brgy = ["Apopong",
             <div class="content">
             <form method="post" action="register_service-provider.php" 
             enctype="multipart/form-data">
-             <?php include('errors.php'); ?>
+             <?php include('scripts/errors.php'); ?>
                 <div class="user-details">
                     <div class="input-box" id="1">
                         <span class="details">First Name</span>
@@ -203,11 +203,11 @@ $brgy = ["Apopong",
                                             </div>
                                             <div class="sub-list2">
                                             <?php 
-                                                $query = $db->query("SELECT * FROM `services`,service_category WHERE services.cat_id=service_category.cat_id AND service_cat LIKE '%Home%'") or die(mysqli_query());
+                                                $query = $db_home_service_111->query("SELECT * FROM `services`,service_category WHERE services.cat_id=service_category.cat_id AND service_cat LIKE '%Home%'") or die(mysqli_query());
                                                 while($fetch = $query->fetch_array()){
                                             ?>
                                             <ul name="Home" value="Home" id="Service_id">
-                                                <li><?php echo $fetch['service_name']?></li>
+                                                <li id="service"><?php echo $fetch['service_name']?></li>
                                                 <input type="hidden" value="<?php echo $fetch['cat_id']?>" name="cat_id">
                                                 <input type="hidden" value="<?php echo $fetch['service_id']?>" name="service_id">
                                             </ul>
@@ -221,11 +221,11 @@ $brgy = ["Apopong",
                                             </div>
                                             <div class="sub-list2">
                                             <?php 
-                                                $query = $db->query("SELECT * FROM `services`,service_category WHERE services.cat_id=service_category.cat_id AND service_cat LIKE '%Repair%'") or die(mysqli_query());
+                                                $query = $db_home_service_111->query("SELECT * FROM `services`,service_category WHERE services.cat_id=service_category.cat_id AND service_cat LIKE '%Repair%'") or die(mysqli_query());
                                                 while($fetch = $query->fetch_array()){
                                             ?>
                                             <ul name="Repair&Maintenance" id="Service_id">
-                                                <li><?php echo $fetch['service_name']?></li>
+                                                <li id="service"><?php echo $fetch['service_name']?></li>
                                                 <input type="hidden" value="<?php echo $fetch['cat_id']?>" name="cat_id">
                                                 <input type="hidden" value="<?php echo $fetch['service_id']?>" name="service_id">
                                             </ul>
@@ -238,11 +238,11 @@ $brgy = ["Apopong",
                                             </div>
                                             <div class="sub-list2">
                                             <?php 
-                                                $query = $db->query("SELECT * FROM `services`,service_category WHERE services.cat_id=service_category.cat_id AND service_cat LIKE '%Event%'") or die(mysqli_query());
+                                                $query = $db_home_service_111->query("SELECT * FROM `services`,service_category WHERE services.cat_id=service_category.cat_id AND service_cat LIKE '%Event%'") or die(mysqli_query());
                                                 while($fetch = $query->fetch_array()){
                                             ?>
                                             <ul name="Events" id="Service_id">
-                                                <li><?php echo $fetch['service_name']?></li>
+                                                <li id="service"><?php echo $fetch['service_name']?></li>
                                                 <input type="hidden" value="<?php echo $fetch['cat_id']?>" name="cat_id">
                                                 <input type="hidden" value="<?php echo $fetch['service_id']?>" name="service_id">
                                             </ul>
@@ -256,11 +256,11 @@ $brgy = ["Apopong",
                                             </div>
                                             <div class="sub-list2">
                                             <?php 
-                                                $query = $db->query("SELECT * FROM `services`,service_category WHERE services.cat_id=service_category.cat_id AND service_cat LIKE '%Personal Grooming%'") or die(mysqli_query());
+                                                $query = $db_home_service_111->query("SELECT * FROM `services`,service_category WHERE services.cat_id=service_category.cat_id AND service_cat LIKE '%Personal Grooming%'") or die(mysqli_query());
                                                 while($fetch = $query->fetch_array()){
                                             ?>
                                             <ul name="Personal Grooming"id="Service_id">
-                                                <li><?php echo $fetch['service_name']?></li>
+                                                <li id="service"><?php echo $fetch['service_name']?></li>
                                                 <input type="hidden" value="<?php echo $fetch['cat_id']?>" name="cat_id">
                                                 <input type="hidden" value="<?php echo $fetch['service_id']?>" name="service_id">
                                             </ul>
@@ -274,11 +274,11 @@ $brgy = ["Apopong",
                                             </div>
                                             <div class="sub-list2">
                                             <?php 
-                                                $query = $db->query("SELECT * FROM `services`,service_category WHERE services.cat_id=service_category.cat_id AND service_cat LIKE '%Automotive%'") or die(mysqli_query());
+                                                $query = $db_home_service_111->query("SELECT * FROM `services`,service_category WHERE services.cat_id=service_category.cat_id AND service_cat LIKE '%Automotive%'") or die(mysqli_query());
                                                 while($fetch = $query->fetch_array()){
                                             ?>
                                             <ul name="Health care"id="Service_id">
-                                                <li><?php echo $fetch['service_name']?></li>
+                                                <li id="service"><?php echo $fetch['service_name']?></li>
                                                 <input type="hidden" value="<?php echo $fetch['cat_id']?>" name="cat_id">
                                                 <input type="hidden" value="<?php echo $fetch['service_id']?>" name="service_id">
                                             </ul>
@@ -292,11 +292,11 @@ $brgy = ["Apopong",
                                             </div>
                                             <div class="sub-list2">
                                             <?php 
-                                                $query = $db->query("SELECT * FROM `services`,service_category WHERE services.cat_id=service_category.cat_id AND service_cat LIKE '%Office%'") or die(mysqli_query());
+                                                $query = $db_home_service_111->query("SELECT * FROM `services`,service_category WHERE services.cat_id=service_category.cat_id AND service_cat LIKE '%Office%'") or die(mysqli_query());
                                                 while($fetch = $query->fetch_array()){
                                             ?>
                                             <ul name="Office"id="Service_id">
-                                                <li><?php echo $fetch['service_name']?></li>
+                                                <li id="service"><?php echo $fetch['service_name']?></li>
                                                 <input type="hidden" value="<?php echo $fetch['cat_id']?>" name="cat_id">
                                                 <input type="hidden" value="<?php echo $fetch['service_id']?>" name="service_id">
                                             </ul>
@@ -304,16 +304,23 @@ $brgy = ["Apopong",
                                         </div>
                                         </li>
                                         <li id="service-name" style="display: block">
-                                            <button type="button" onclick="showMsg()"><i class="fa fa-plus"></i></button>
+                                            <button type="button"><i class="fa fa-plus"></i></button>
                                         </li>
-                                        <script src="js/show.js"></script>
+                                        <script>
+                                            $(function(){
+                                                $('button').on("click", function(){
+                                                    $('#container1').slideToggle(300);
+                                                    $('#txt').attr('disabled', false);
+                                                });
+                                            });
+                                        </script>
 
                                         <div class="input-box" id="container1">
                                             <h2 style="text-align: center">Add Service <i style="color: red; text-align:">*</i></h2><br><br>
-                                            <label for="">For</label>
+                                            <label for="">Input what Service Category you want to Offer</label><br>
                                             <select type="text" name="cat_id" id="service_cat" >
                                             <?php 
-                                                $query = $db->query("SELECT * FROM service_category") or die(mysqli_query());
+                                                $query = $db_home_service_111->query("SELECT * FROM service_category") or die(mysqli_query());
                                                 while($fetch = $query->fetch_array()){
                                             ?>
                                                 <option value="<?php echo $fetch['cat_id']?>"><?php echo $fetch['service_cat']?></option>
@@ -323,7 +330,7 @@ $brgy = ["Apopong",
 
                                         <div class="input-box" id="container" style="width: 40%; margin: 20px auto">
                                             <label for="txt">Type of Service</label>
-                                            <input type="text" id="txt" name="service_type">
+                                            <input type="text" id="txt" name="service_type" disabled>
                                         </div>
                                         
                                         <div class="input-box" style="width: 40%; margin: 20px auto">
@@ -346,23 +353,39 @@ $brgy = ["Apopong",
                                                     document.getElementById('txt').value = this.innerHTML;
                                                 };
                                                 }
+                                                
+                                            $(function(){
+                                                $("#service").on('click', function(){
+                                                    window.location.href = '#txt';
+                                                });
+                                            });
+                                            
+                                            $(function(){
+                                                $('input[type="file"]').change(function(){
+                                                    var files = $(this).get(0).files;
+                                                    if(files.length === 0){
+                                                        $('#error').text('Please upload picture').show();
+                                                    }
+                                                });
+                                            });
+
                                         </script>
                                     </ul>
                                   </div>
                             </div>
                             <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Check if the field input has no value
-    if (empty($_POST['firstname'])) {
-        // Redirect the user back to the input field
-        header('Location: register_service-provider.php#1');
-        exit;
-    } else {
-        // Field input has a value, process the form submission
-        // ...
-    }
-}
-?>
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    // Check if the field input has no value
+                    if (empty($_POST['firstname'])) {
+                        // Redirect the user back to the input field
+                        header('Location: register_service-provider.php#1');
+                        exit;
+                    } else {
+                        // Field input has a value, process the form submission
+                        // ...
+                    }
+                }
+                ?>
 
                             
                         </div>
@@ -376,7 +399,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>         
     </div>
     <?php
-    $db->close();
+    $db_home_service_111->close();
     ?>
 </div>
 </body>

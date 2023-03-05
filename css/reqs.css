@@ -11,6 +11,7 @@
   object-position: center;
   border-radius: 2px;
   background: #232324;
+  padding: 0;
 }
 
 .panel.panel-default{
@@ -73,6 +74,90 @@ a .fa.fa-arrow-left:hover{
   box-shadow: 0 4px 16px rgb(0 0 0 / 47%);
 }
 
+.dashboard > div:hover {
+  border: 2px solid;
+  -webkit-animation: bigSize 5s linear infinite;
+  animation: bigSize 5s linear infinite;
+}
+
+@-webkit-keyframes bigSize {
+  0% {
+      border-color: transparent;
+      border-top-color: #fff;
+  }
+  12.5% {
+      border-color: transparent;
+      border-right-color: #fff;
+  }
+  25% {
+      border-color: transparent;
+      border-bottom-color: #fff;
+  }
+  37.5% {
+      border-color: transparent;
+      border-left-color: #fff;
+  }
+  50% {
+      border-color: transparent;
+      border-top-color: #fff;
+  }
+  62.5% {
+      border-color: transparent;
+      border-right-color: #fff;
+  }
+  75% {
+      border-color: transparent;
+      border-bottom-color: #fff;
+  }
+  87.5% {
+      border-color: transparent;
+      border-left-color: #fff;
+  }
+  100% {
+      border-color: transparent;
+      border-top-color: #fff;
+}
+}
+
+@keyframes bigSize {
+  0% {
+      border-color: transparent;
+      border-top-color: #fff;
+  }
+  12.5% {
+      border-color: transparent;
+      border-right-color: #fff;
+  }
+  25% {
+      border-color: transparent;
+      border-bottom-color: #fff;
+  }
+  37.5% {
+      border-color: transparent;
+      border-left-color: #fff;
+  }
+  50% {
+      border-color: transparent;
+      border-top-color: #fff;
+  }
+  62.5% {
+      border-color: transparent;
+      border-right-color: #fff;
+  }
+  75% {
+      border-color: transparent;
+      border-bottom-color: #fff;
+  }
+  87.5% {
+      border-color: transparent;
+      border-left-color: #fff;
+  }
+  100% {
+      border-color: transparent;
+      border-top-color: #fff;
+}
+}
+
 .dashboard i{
   font-size: 20pt;
 }
@@ -87,7 +172,7 @@ a .fa.fa-arrow-left:hover{
 }
 
 .info1{
-  background-color: #5bc0de;
+  background-color: #007bff;
 }
 
 .warning{
@@ -191,7 +276,7 @@ table.table.table-bordered{
   align-items: center;
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 1000px){
 
   
 	.container-fluid{
